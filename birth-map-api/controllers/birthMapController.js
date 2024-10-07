@@ -203,7 +203,6 @@ const getDate = asyncHandler(async (req, res) => {
 	const utMonth = utTime.month() + 1; // moment months are 0-indexed
 	const utDay = utTime.date();
 	const utHourDecimal = utTime.hour() + utTime.minute() / 60 + utTime.second() / 3600;
-	console.log('Time:', utYear, '/', utMonth, '/', utDay, '/', utHourDecimal);
 
 	// Calculate Julian Day
 	const julianDay = sweph.utc_to_jd(utYear, utMonth, utDay, utHourDecimal, minute, 0, sweph.constants.SE_GREG_CAL).data[0];

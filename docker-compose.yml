@@ -3,7 +3,7 @@ version: '3'
 services:
   backend:
     build:
-      context: ./backend
+      context: ./birth-map-api
       dockerfile: Dockerfile
     ports:
       - "3000:3000"
@@ -11,24 +11,17 @@ services:
       - NODE_ENV=development
       - PORT=3000
     volumes:
-      - ./backend:/usr/src/app
-    depends_on:
-      - db
+      - ./birth-map-api:/usr/src/app
+      - /usr/src/app/node_modules
 
   client:
     build:
-      context: ./client
+      context: ./test_env
       dockerfile: Dockerfile
     ports:
       - "5173:80"
     environment:
       - NODE_ENV=production
     volumes:
-      - ./client:/usr/src/app
-
-  db:
-    image: mongo:latest
-    ports:
-      - "27017:27017"
-    volumes:
-      - ./data:/data/db
+      - ./test_env:/usr/src/app
+      - /usr/src/app/node_modules
