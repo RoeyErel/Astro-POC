@@ -6,10 +6,10 @@ services:
       context: ./birth-map-api
       dockerfile: Dockerfile
     ports:
-      - "3000:3000"
+      - "6001:6001"
     environment:
       - NODE_ENV=development
-      - PORT=3000
+      - PORT=6001
     volumes:
       - ./birth-map-api:/usr/src/app
       - /usr/src/app/node_modules
@@ -19,7 +19,7 @@ services:
       context: ./test_env
       dockerfile: Dockerfile
     ports:
-      - "5173:80"
+      - "6000:6000"
     environment:
       - NODE_ENV=production
     volumes:
