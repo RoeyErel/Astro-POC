@@ -29,6 +29,6 @@ app.use((err, req, res, next) => {
 });
 
 // Start the server
-app.listen(process.env.PORT || 6001, () => {
+app.listen(process.env.PORT || 5174, () => {
 	console.log('Backend Connected.');
 });
