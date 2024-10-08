@@ -19,9 +19,9 @@ services:
       context: ./test_env
       dockerfile: Dockerfile
     ports:
-      - "6000:6000"
+      - "5173:5173"
     environment:
-      - NODE_ENV=production
+      - NODE_ENV=development
     volumes:
       - ./test_env:/usr/src/app
       - /usr/src/app/node_modules

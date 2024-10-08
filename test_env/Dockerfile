@@ -1,21 +1,19 @@
-# Client Dockerfile
-FROM node:18-alpine as build
+# Use the official Node.js 18 image
+FROM node:18
 
 WORKDIR /usr/src/app
 
+# Copy package.json and package-lock.json
 COPY package*.json ./
 
+# Install dependencies including devDependencies
 RUN npm install
 
+# Copy the rest of your application
 COPY . .
 
-RUN npm run build
+# Expose the port for the Vite development server
+EXPOSE 5173
 
-# Nginx server for static files
-FROM nginx:alpine
-
-COPY --from=build /usr/src/app/dist /usr/share/nginx/html
-
-EXPOSE 80
-
-CMD ["nginx", "-g", "daemon off;"]
+# Start the Vite development server
+CMD ["npm", "run", "dev"]

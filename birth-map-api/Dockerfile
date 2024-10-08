@@ -16,6 +16,7 @@ WORKDIR /usr/src/app
 
 # Set NODE_ENV to development to include devDependencies
 ENV NODE_ENV=development
+ENV PORT=6001
 
 # Copy package.json and package-lock.json
 COPY package*.json ./
@@ -27,7 +28,7 @@ RUN npm install
 COPY . .
 
 # Expose the port your app runs on
-EXPOSE 3000
+EXPOSE 6001
 
 # Start your application
 CMD ["npm", "start"]

@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(
 	cors({
-		origin: 'http://localhost:6000' // Allow only your React app's origin
+		origin: 'http://localhost:5173' // Allow only your React app's origin
 	})
 );
 
