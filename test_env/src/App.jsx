@@ -15,7 +15,7 @@ function App() {
 				return;
 			}
 
-			const response = await fetch('http://localhost:6001/api/birth-map', {
+			const response = await fetch('http://localhost:5174/api/birth-map', {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json'
